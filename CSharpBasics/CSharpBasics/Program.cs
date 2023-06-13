@@ -38,7 +38,7 @@ class Homework_2
         Console.WriteLine("Enter an integer:");
         string input = Console.ReadLine();
         bool output = int.TryParse(input, out int number);
-        if (output == true)
+        if (output)
             Console.WriteLine($"Correct. The integer is {number}");
         else
             Console.WriteLine("Error");
