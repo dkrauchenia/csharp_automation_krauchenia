@@ -43,8 +43,16 @@
 //Console.WriteLine("Enter the discount (%): ");
 //double discount = double.Parse(Console.ReadLine());
 
-//string receipt = new Homework_1().CreateReceipt(itemName1, itemName2, itemName3, unitPrice1, unitPrice2, unitPrice3, discount);
-//Console.WriteLine(receipt);
+//string receipt1 = new Homework_1().CreateReceipt(itemName1, unitPrice1, discount);
+//string receipt2 = new Homework_1().CreateReceipt(itemName2, unitPrice2, discount);
+//string receipt3 = new Homework_1().CreateReceipt(itemName3, unitPrice3, discount);
+
+//double total1 = new Homework_1().CalculateTotalAmount(quantity1, unitPrice1, discount);
+//double total2 = new Homework_1().CalculateTotalAmount(quantity2, unitPrice2, discount);
+//double total3 = new Homework_1().CalculateTotalAmount(quantity3, unitPrice3, discount);
+//double finalPrice = total1 + total2 + total3;
+
+//new Homework_1().CreateFinalReceipt(receipt1, receipt2, receipt3, finalPrice);
 
 #endregion
 
@@ -79,8 +87,16 @@
 //Console.WriteLine("Enter the discount (%): ");
 //double discount = double.Parse(Console.ReadLine());
 
-//string receipt = new Homework_1().CreateReceipt(itemName1, itemName2, itemName3, unitPrice1, unitPrice2, unitPrice3, discount, quantity1, quantity2, quantity3);
-//Console.WriteLine(receipt);
+//string receipt1 = new Homework_1().CreateReceipt(itemName1, unitPrice1, discount, quantity1);
+//string receipt2 = new Homework_1().CreateReceipt(itemName2, unitPrice2, discount, quantity2);
+//string receipt3 = new Homework_1().CreateReceipt(itemName3, unitPrice3, discount, quantity3);
+
+//double total1 = new Homework_1().CalculateTotalAmount(quantity1, unitPrice1, discount);
+//double total2 = new Homework_1().CalculateTotalAmount(quantity2, unitPrice2, discount);
+//double total3 = new Homework_1().CalculateTotalAmount(quantity3, unitPrice3, discount);
+//double finalPrice = total1 + total2 + total3;
+
+//new Homework_1().CreateFinalReceipt(receipt1, receipt2, receipt3, finalPrice);
 #endregion
 
 #region Task_4
@@ -144,14 +160,19 @@ class Homework_1
         return amountWithDiscount;
     }
 
-    public string CreateReceipt(string itemName1, string itemName2, string itemName3, double unitPrice1, double unitPrice2, double unitPrice3, double discount, int quantity1 = 2, int quantity2 = 2, int quantity3 = 2)
+    public string CreateReceipt(string itemName, double unitPrice, double discount, int quantity = 2)
     {
-        double totalAmount1 = CalculateTotalAmount(quantity1, unitPrice1, discount);
-        double totalAmount2 = CalculateTotalAmount(quantity2, unitPrice2, discount);
-        double totalAmount3 = CalculateTotalAmount(quantity3, unitPrice3, discount);
-        double total = totalAmount1 + totalAmount2 + totalAmount3;
-        string receipt = $"Items: {itemName1}, {itemName2}, {itemName3}\nQuantity: {quantity1}, {quantity2}, {quantity3}\nPrice per unit: {unitPrice1:C}, {unitPrice2:C}, {unitPrice3:C}\nDiscount: {discount}%\nTotal amount: {total:C}";
+        double totalAmount = CalculateTotalAmount(quantity, unitPrice, discount);
+        string receipt = $"Item: {itemName}, Quantity: {quantity}, Price per unit: {unitPrice:C}, Discount: {discount}%, Total amount for {itemName}: {totalAmount:C}";
         return receipt;
+    }
+
+    public void CreateFinalReceipt(string receipt1, string receipt2, string receipt3, double finalPrice)
+    {
+        Console.WriteLine($"{receipt1}");
+        Console.WriteLine($"{receipt2}");
+        Console.WriteLine($"{receipt3}");
+        Console.WriteLine($"TOTAL: {finalPrice:C}");
     }
 
     public double CalculatePerimeter(params double[] sides)
