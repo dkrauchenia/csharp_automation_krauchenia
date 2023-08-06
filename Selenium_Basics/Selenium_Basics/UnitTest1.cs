@@ -15,6 +15,7 @@ namespace Selenium_Basics
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(20);
         }
 
 
@@ -23,7 +24,7 @@ namespace Selenium_Basics
         {
             //Step 1. Navigate to Epam homepage
             driver.Navigate().GoToUrl(EpamHomePageUrl);
-            Thread.Sleep(5000);
+            
 
             //Step 2. Check that the correct page is opened
             Assert.AreEqual(EpamHomePageUrl, driver.Url);
@@ -34,19 +35,19 @@ namespace Selenium_Basics
         {
             //Step 1. Navigate to Epam How We Do It page
             driver.Navigate().GoToUrl(EpamHowWeDoItUrl);
-            Thread.Sleep(5000);
+            
 
             //Step 2.Navigate to Epam Our Work page
             driver.Navigate().GoToUrl(EpamOurWorkUrl);
-            Thread.Sleep(5000);
+            
 
             //Step 3.Reload the page
             driver.Navigate().Refresh();
-            Thread.Sleep(5000);
+            
 
             //Step 4. Go back to the previous page (How We Do It)
             driver.Navigate().Back();
-            Thread.Sleep(5000);
+            
 
             //Step 5. Check that the correct page (How We Do It) is opened
             Assert.AreEqual(EpamHowWeDoItUrl, driver.Url);
