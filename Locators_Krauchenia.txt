@@ -1,9 +1,0 @@
-Task 5:
-1. class name = header-search__button header__icon -> //*[@class='header-search__button header__icon']
-2. id = onetrust-consent-sdk  ->  //*[@id='onetrust-consent-sdk']
-3. href = https://www.epam.com  -> //a[@href='https://www.epam.com']
-4. name = vendor-search-handler -> //*[@name='vendor-search-handler']
-5. tag nav -> //nav
-
-Task 6:
-//a[@href='https://www.epam.com/about/who-we-are/contact']
